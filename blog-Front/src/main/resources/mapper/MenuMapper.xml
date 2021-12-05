@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.chenshu.mapper.MenuMapper">
+
+
+
+
+
+    <select id="getMenuList" parameterType="java.lang.String" resultType="team.chenshu.entity.Menu">
+
+    select  id,menu_id,menu_icon,menu_name,menu_sort,menu_target,menu_url,menu_fid
+
+    from  blogs_menu
+
+    where menu_name = #{menuName}  or menu_fid in (select menu_id from blogs_menu where menu_name = #{menuName} )
+
+
+
+    </select>
+
+
+</mapper>

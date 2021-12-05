@@ -1,9 +1,12 @@
 spring:
   profiles:
     active: test #默认运行环境
+file:
+  upload:
+    url:E:/test
 ---
 server:
-  port: 8001
+  port: 8002
 spring:
   profiles: test  #运行环境 + 命名空间名称
   application:
@@ -20,7 +23,7 @@ spring:
         file-extension: yml   #默认properties
 ---
 server:
-  port: 8001
+  port: 8002
 spring:
   profiles: pre-blog  #运行环境 + 命名空间名称
   application:
@@ -37,7 +40,7 @@ spring:
         file-extension: yml   #默认properties
 ---
 server:
-  port: 8001
+  port: 8002
 spring:
   profiles: prd-blog  #运行环境 + 命名空间名称
   application:
