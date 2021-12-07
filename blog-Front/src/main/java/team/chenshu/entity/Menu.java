@@ -1,6 +1,7 @@
 package team.chenshu.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
@@ -28,24 +29,31 @@ public class Menu implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @TableField(value = "menu_id")
     @ApiModelProperty("菜单id")
     private Integer menuId;
 
+    @TableField(value = "menu_icon")
     @ApiModelProperty("菜单图标")
     private String menuIcon;
 
+    @TableField(value = "menu_name")
     @ApiModelProperty("菜单名称")
     private String menuName;
 
+    @TableField(value = "menu_sort")
     @ApiModelProperty("排序")
     private Integer menuSort;
 
+    @TableField(value = "menu_target")
     @ApiModelProperty("打开方式")
     private String menuTarget;
 
+    @TableField(value = "menu_url")
     @ApiModelProperty("菜单路径")
     private String menuUrl;
 
+    @TableField(value = "menu_fid")
     @ApiModelProperty("父菜单id")
     private Integer menuFid;
 

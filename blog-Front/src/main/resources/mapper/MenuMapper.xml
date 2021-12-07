@@ -19,4 +19,23 @@
     </select>
 
 
+
+    <select id="getMenuLists" parameterType="java.lang.String" resultType="java.lang.String">
+
+        select  id,menu_id,menu_icon,menu_name,menu_sort,menu_target,menu_url,menu_fid
+
+        from  blogs_menu
+
+        where menu_name = #{menuName}  or menu_fid in (select menu_id from blogs_menu where menu_name = #{menuName} )
+
+
+
+    </select>
+
+
+
+
+
+
+
 </mapper>

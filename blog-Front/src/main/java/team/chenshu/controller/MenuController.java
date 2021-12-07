@@ -33,6 +33,15 @@ public class MenuController {
 		   return menuList;
 	   }
 
+
+	@ResponseBody
+	@GetMapping("/getMenuList")
+	public List<Menu> getMenuList(String name){
+		List<Menu> menuList = menuService.getMenuList(name);
+		return menuList;
+	}
+
+
 	@RequestMapping("/helloWorld")
 	@ResponseBody
 	public String helloWorld() {

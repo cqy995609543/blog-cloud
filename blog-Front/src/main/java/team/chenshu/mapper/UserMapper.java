@@ -1,5 +1,6 @@
 package team.chenshu.mapper;
 
+import org.springframework.stereotype.Repository;
 import team.chenshu.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author yu
  * @since 2021-12-04
  */
+@Repository
 public interface UserMapper extends BaseMapper<User> {
 
 
