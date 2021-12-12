@@ -1,9 +1,15 @@
 package team.chenshu.controller;
 
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import team.chenshu.entity.Article;
+import team.chenshu.service.ArticleService;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -16,6 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
+
+		@Resource
+		private ArticleService articleService;
+
+		@ResponseBody
+		@PostMapping("/getArticleFromId")
+		public Article getArticleFromId(int id){
+			Article article = articleService.getById(id);
+			return article;
+		}
+
 
 }
 

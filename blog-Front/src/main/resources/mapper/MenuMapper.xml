@@ -8,11 +8,11 @@
 
     <select id="getMenuList" parameterType="java.lang.String" resultType="team.chenshu.entity.Menu">
 
-    select  id,menu_id,menu_icon,menu_name,menu_sort,menu_target,menu_url,menu_fid
+        select  id,menu_id,menu_icon,menu_name,menu_sort,menu_target,menu_url,menu_fid
 
-    from  blogs_menu
+        from  blogs_menu
 
-    where menu_name = #{menuName}  or menu_fid in (select menu_id from blogs_menu where menu_name = #{menuName} )
+        where FIND_IN_SET(menu_id,get_child_list(#{menuId})) ;
 
 
 

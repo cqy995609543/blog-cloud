@@ -1,3 +1,4 @@
+/*
 package team.chenshu.controller;
 
 import org.apache.commons.fileupload.FileItem;
@@ -13,11 +14,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+*/
 /**
  * @author yu
  * @date 2021/11/29 - 22:45
  * @Content: 为博客管理页面做一个文件上传下载的接口，目标：用多种不同的方法实现文件的上传和下载
- */
+ *//*
+
 @RestController
 public class fileController {
 
@@ -123,3 +126,4 @@ public class fileController {
 
 
 }
+*/

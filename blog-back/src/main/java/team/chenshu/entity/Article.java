@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.sql.Date;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -62,10 +64,11 @@ public class Article implements Serializable {
     private Integer click;
 
     @ApiModelProperty("添加时间")
-    private Integer addtime;
+    private String addtime;
 
     @ApiModelProperty("分类id")
     private Integer cid;
 
-
+    @ApiModelProperty("标签")
+    private String tags;
 }

@@ -36,8 +36,8 @@ public class MenuController {
 
 	@ResponseBody
 	@GetMapping("/getMenuList")
-	public List<Menu> getMenuList(String name){
-		List<Menu> menuList = menuService.getMenuList(name);
+	public List<Menu> getMenuList(String id){
+		List<Menu> menuList = menuService.getMenuList(id);
 		return menuList;
 	}
 

@@ -1,12 +1,14 @@
 spring:
   profiles:
     active: test #默认运行环境
-file:
-  upload:
-    url:E:/test
+  file:
+    upload:
+      url:E:/test
 ---
 server:
   port: 8002
+  servlet:
+    context-path: /api
 spring:
   profiles: test  #运行环境 + 命名空间名称
   application:
