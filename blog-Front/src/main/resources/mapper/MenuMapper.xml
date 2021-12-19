@@ -12,7 +12,7 @@
 
         from  blogs_menu
 
-        where FIND_IN_SET(menu_id,get_child_list(#{menuId})) ;
+        where FIND_IN_SET(menu_id,get_child_list(#{menuId})) order by menu_sort;
 
 
 

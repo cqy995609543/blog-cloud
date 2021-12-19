@@ -1,7 +1,10 @@
 package team.chenshu.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import team.chenshu.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
+import team.chenshu.entity.vo.ArticleVo;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ArticleService extends IService<Article> {
 
+	IPage<Article> selectTags(Page<?> page);
+
+	IPage<ArticleVo> selectPageVo(Page<?> page, int tag);
 }

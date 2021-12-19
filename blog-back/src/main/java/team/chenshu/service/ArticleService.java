@@ -16,7 +16,7 @@ import team.chenshu.entity.vo.ArticleVo;
  */
 public interface ArticleService extends IService<Article> {
 
-	IPage<Article> selectPage(Page<?> page);
+	IPage<Article> selectTags(Page<?> page);
 
 
 	IPage<ArticleVo> selectPageVo(Page<?> page);

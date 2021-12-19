@@ -152,23 +152,23 @@ public class ArticleController {
 			@ApiImplicitParam(name="currentPage",value="当前页",required=true,paramType="form"),
 			@ApiImplicitParam(name="showNum",value="列表展示几个",required=true,paramType="form"),
 	})
-	public BaseResponse<IPage<Article>> queryArticleVoList(int currentPage,int showNum){
+	public BaseResponse<IPage<ArticleVo>> queryArticleVoList(int currentPage,int showNum){
 
-		Page<Article> page = new Page<>(currentPage,showNum);
-		IPage<Article> articleIPage = articleService.selectPage(page);
-//		IPage<ArticleVo> articleVoIPage = articleService.selectPageVo(page);
-//		articleIPage.getRecords().forEach((item)->{
-//			int[] Tags = Arrays.stream(item.getTags().split(",")).mapToInt(s -> Integer.parseInt(s)).toArray();
-//
-//		});
-//		for (int i=0; i<articleIPage.getRecords().size(); i++){
-//			int[] Tags = Arrays.stream(articleIPage.getRecords().get(i).getTags().split(",")).mapToInt(s -> Integer.parseInt(s)).toArray();
-//			articleVoIPage.getRecords().get(i).setTags(Tags);
-//		}
-
-
-		return ResultUtils.success(articleIPage);
-
+		Page<Article> page1 = new Page<>(currentPage,showNum);
+		IPage<Article> articleIPage = articleService.selectTags(page1);
+		Page<ArticleVo> page = new Page<>(currentPage,showNum);
+		IPage<ArticleVo> articleVoIPage = articleService.selectPageVo(page);
+		articleIPage.getRecords().forEach((item)->{
+			int[] Tags = Arrays.stream(item.getTags().split(",")).mapToInt(s -> Integer.parseInt(s)).toArray();
+			System.out.println(Tags);
+			articleVoIPage.getRecords().forEach(i ->{
+				if(item.getId().equals(i.getId())){
+					i.setTags(Tags);
+				}
+			});
+		});
+		System.out.println(articleVoIPage);
+		return ResultUtils.success(articleVoIPage);
 	}
 
 

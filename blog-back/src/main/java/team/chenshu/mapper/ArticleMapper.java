@@ -26,7 +26,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
 	 * @param page 分页对象,xml中可以从里面进行取值,传递参数 Page 即自动分页,必须放在第一位(你可以继承Page实现自己的分页对象)
 	 * @return 分页对象
 	 */
-	IPage<Article> selectPage(Page<?> page);
+	IPage<Article> selectTags(Page<?> page);
 
 	IPage<ArticleVo> selectPageVo(Page<?> page);
 

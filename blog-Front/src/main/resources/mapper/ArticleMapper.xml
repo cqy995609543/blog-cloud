@@ -2,4 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team.chenshu.mapper.ArticleMapper">
 
+
+
+    <select id="selectTags" resultType="team.chenshu.entity.Article">
+        SELECT id,tags FROM blogs_article
+    </select>
+
+    <select id="selectPageVo" parameterType="integer" resultType="team.chenshu.entity.vo.ArticleVo">
+        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,content,description,tags FROM blogs_article where  FIND_IN_SET(#{tag},tags)
+    </select>
+
+
 </mapper>

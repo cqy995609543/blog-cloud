@@ -27,7 +27,7 @@ public class Menu implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer id;
 
     @TableField(value = "menu_id")
     @ApiModelProperty("菜单id")
@@ -46,7 +46,7 @@ public class Menu implements Serializable {
     private Integer menuSort;
 
     @TableField(value = "menu_target")
-    @ApiModelProperty("打开方式")
+    @ApiModelProperty("目录等级")
     private String menuTarget;
 
     @TableField(value = "menu_url")

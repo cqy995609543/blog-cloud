@@ -25,10 +25,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 	private ArticleMapper articleMapper;
 
 	@Override
-	public IPage<Article> selectPage(Page<?> page) {
+	public IPage<Article> selectTags(Page<?> page) {
 
 
-		IPage<Article> articleIPage = articleMapper.selectPage(page);
+		IPage<Article> articleIPage = articleMapper.selectTags(page);
 
 
 		return articleIPage;

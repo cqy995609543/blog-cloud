@@ -13,6 +13,7 @@
         <module>blog-Front</module>
         <module>gateway</module>
         <module>blog-back</module>
+        <module>oauth2</module>
     </modules>
 
     <!-- 父工程 -->

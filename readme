@@ -13,3 +13,81 @@ common          模块 ： 公共类，资源
   3.service里把查询结果封装进vo类 4.调试接口
 
  预留一个存储过程问题，循环查询所属子菜单
+
+
+
+ nacos配置
+ test-blog  a60273f4-07fb-4568-82eb-d078a3b02108
+
+ Front-test.yml  DEFAULT_GROUP
+ spring:
+   datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/blogs?serverTimezone=GMT%2B8&characterEncoding=utf-8
+     username: root
+     password: root
+     druid:
+       initialSize: 10
+       minIdle: 10
+       maxActive: 30
+       maxWait: 50000
+ dubbo:
+   protocol:
+     # dubbo 协议
+     name: dubbo
+     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+     port: -1
+     host: 127.0.0.1
+   registry:
+     # 挂载到 Spring Cloud 的注册中心
+     address: spring-cloud://localhost
+
+
+
+ gateway-test
+ spring:
+
+
+ back-test.yml
+ spring:
+   datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/blogs?serverTimezone=GMT%2B8&characterEncoding=utf-8
+     username: root
+     password: root
+     druid:
+       initialSize: 10
+       minIdle: 10
+       maxActive: 30
+       maxWait: 50000
+ dubbo:
+   protocol:
+     # dubbo 协议
+     name: dubbo
+     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+     port: -1
+     host: 127.0.0.1
+   registry:
+     # 挂载到 Spring Cloud 的注册中心
+     address: spring-cloud://localhost
+
+ oauth-test.yml
+ spring:
+   datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/blogs?serverTimezone=GMT%2B8&characterEncoding=utf-8
+     username: root
+     password: root
+     druid:
+       initialSize: 10
+       minIdle: 10
+       maxActive: 30
+       maxWait: 50000
+   redis:
+     database: 1
+     host: 192.168.*.***
+     port: 6379
+     password: ****
+     timeout: 5000
+ mybatis:
+   mapper-locations: classpath:mapper/*.xml
