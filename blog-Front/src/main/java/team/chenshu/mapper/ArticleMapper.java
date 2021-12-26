@@ -19,9 +19,17 @@ import team.chenshu.entity.vo.ArticleVo;
 public interface ArticleMapper extends BaseMapper<Article> {
 
 
-	IPage<Article> selectTags(Page<?> page);
+	IPage<Article> selectTags(Page<?> page, int tag);
 
 	IPage<ArticleVo> selectPageVo(Page<?> page, int tag);
 
+	IPage<ArticleVo> selectPageFromHot(Page<?> page);
+
+	IPage<Article> selectTagsOrderbyClick(Page<?> page);
+
+
+	IPage<Article> selectTagsOrderbyTime(Page<?> page);
+
+	IPage<ArticleVo> selectPageFromTime(Page<?> page);
 
 }

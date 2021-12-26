@@ -1,6 +1,7 @@
 package team.chenshu.controller;
 
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/menu")
+@Api(tags="博客页类型接口")
 public class MenuController {
 
 	  @Resource

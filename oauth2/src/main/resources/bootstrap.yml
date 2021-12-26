@@ -3,7 +3,7 @@ spring:
     active: test
 ---
 server:
-  port: 8002
+  port: 8004
 spring:
   profiles: test
   application:
@@ -12,15 +12,21 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848  #Nacos 链接地址
-        namespace: a60273f4-07fb-4568-82eb-d078a3b02107 #Nacos 命名空间ID
+        namespace: a60273f4-07fb-4568-82eb-d078a3b02108 #Nacos 命名空间ID
       config:
         server-addr: 127.0.0.1:8848  #Nacos 链接地址
-        namespace: a60273f4-07fb-4568-82eb-d078a3b02107 #Nacos 命名空间ID
+        namespace: a60273f4-07fb-4568-82eb-d078a3b02108 #Nacos 命名空间ID
         group: DEFAULT_GROUP  # 默认分组就是DEFAULT_GROUP，如果使用默认分组可以不配置
         file-extension: yml   #默认properties
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 50000
+    password: 123456
 ---
 server:
-  port: 8002
+  port: 8004
 spring:
   profiles: pre
   application:
@@ -37,7 +43,7 @@ spring:
         file-extension: yml   #默认properties
 ---
 server:
-  port: 8002
+  port: 8004
 spring:
   profiles: prd
   application:

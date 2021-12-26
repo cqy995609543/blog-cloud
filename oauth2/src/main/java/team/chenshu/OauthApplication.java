@@ -14,7 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EntityScan("team.chenshu.pojo")
-@MapperScan("team.chenshu.dao")
+@MapperScan("team.chenshu.mapper")
 public class OauthApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OauthApplication.class, args);

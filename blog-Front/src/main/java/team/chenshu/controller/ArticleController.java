@@ -1,8 +1,10 @@
 package team.chenshu.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +30,7 @@ import java.util.Arrays;
  */
 @RestController
 @RequestMapping("/article")
+@Api(tags="博客页文章接口")
 public class ArticleController {
 
 		@Resource
@@ -53,7 +56,7 @@ public class ArticleController {
 	public BaseResponse<IPage<ArticleVo>> queryArticleVoList(int currentPage, int showNum,int tag){
 
 		Page<Article> page1 = new Page<>(currentPage,showNum);
-		IPage<Article> articleIPage = articleService.selectTags(page1);
+		IPage<Article> articleIPage = articleService.selectTags(page1,tag);
 		Page<ArticleVo> page = new Page<>(currentPage,showNum);
 		IPage<ArticleVo> articleVoIPage = articleService.selectPageVo(page,tag);
 		articleIPage.getRecords().forEach((item)->{
@@ -95,6 +98,80 @@ public class ArticleController {
 		return  ResultUtils.success(articleVo);
 	}
 
+
+
+
+
+	@GetMapping("/queryArticleListFromHot")
+	@ResponseBody
+	@ApiOperation("查询出热度前五的文章，可翻页，翻页为热度 第六到第十")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="currentPage",value="当前页",required=true,paramType="form"),
+			@ApiImplicitParam(name="showNum",value="列表展示几个",required=true,paramType="form"),
+	})
+	public BaseResponse<IPage<ArticleVo>> queryArticleListFromHot(int currentPage, int showNum){
+
+		Page<Article> page1 = new Page<>(currentPage,showNum);
+//		LambdaQueryWrapper<ArticleVo> wrapper = new LambdaQueryWrapper<ArticleVo>();
+//		wrapper.orderByDesc(ArticleVo::getClick);
+		IPage<Article> articleIPage = articleService.selectTagsOrderbyClick(page1);
+		Page<ArticleVo> page = new Page<>(currentPage,showNum);
+
+		IPage<ArticleVo> articleVoIPage = articleService.selectPageFromHot(page);
+		// 查询数据库操作
+//		LambdaQueryWrapper<ArticleVo> wrapper = new LambdaQueryWrapper<ArticleVo>();
+//		wrapper.orderByDesc(ArticleVo::getClick);
+//		articleService.list(wrapper)
+//		IPage<ArticleVo> articleVoIPage = articleService.selectPageVo(page,tag);
+		articleIPage.getRecords().forEach((item)->{
+			int[] Tags = Arrays.stream(item.getTags().split(",")).mapToInt(s -> Integer.parseInt(s)).toArray();
+			System.out.println("Tags"+Tags);
+			articleVoIPage.getRecords().forEach(i ->{
+				if(item.getId().equals(i.getId())){
+					i.setTags(Tags);
+				}
+			});
+		});
+//		System.out.println(articleVoIPage);
+		return ResultUtils.success(articleVoIPage);
+	}
+
+
+
+
+	@GetMapping("/queryArticleListFromTime")
+	@ResponseBody
+	@ApiOperation("查询出最新提交的文章")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="currentPage",value="当前页",required=true,paramType="form"),
+			@ApiImplicitParam(name="showNum",value="列表展示几个",required=true,paramType="form"),
+	})
+	public BaseResponse<IPage<ArticleVo>> queryArticleListFromTime(int currentPage, int showNum){
+
+		Page<Article> page1 = new Page<>(currentPage,showNum);
+//		LambdaQueryWrapper<ArticleVo> wrapper = new LambdaQueryWrapper<ArticleVo>();
+//		wrapper.orderByDesc(ArticleVo::getClick);
+		IPage<Article> articleIPage = articleService.selectTagsOrderbyTime(page1);
+		Page<ArticleVo> page = new Page<>(currentPage,showNum);
+
+		IPage<ArticleVo> articleVoIPage = articleService.selectPageFromTime(page);
+		// 查询数据库操作
+//		LambdaQueryWrapper<ArticleVo> wrapper = new LambdaQueryWrapper<ArticleVo>();
+//		wrapper.orderByDesc(ArticleVo::getClick);
+//		articleService.list(wrapper)
+//		IPage<ArticleVo> articleVoIPage = articleService.selectPageVo(page,tag);
+		articleIPage.getRecords().forEach((item)->{
+			int[] Tags = Arrays.stream(item.getTags().split(",")).mapToInt(s -> Integer.parseInt(s)).toArray();
+			System.out.println("Tags"+Tags);
+			articleVoIPage.getRecords().forEach(i ->{
+				if(item.getId().equals(i.getId())){
+					i.setTags(Tags);
+				}
+			});
+		});
+//		System.out.println(articleVoIPage);
+		return ResultUtils.success(articleVoIPage);
+	}
 
 
 

@@ -16,7 +16,19 @@ import team.chenshu.entity.vo.ArticleVo;
  */
 public interface ArticleService extends IService<Article> {
 
-	IPage<Article> selectTags(Page<?> page);
+	IPage<Article> selectTags(Page<?> page, int tag);
+
+	IPage<Article> selectTagsOrderbyClick(Page<?> page);
 
 	IPage<ArticleVo> selectPageVo(Page<?> page, int tag);
+
+	IPage<ArticleVo> selectPageFromHot(Page<?> page);
+
+
+	IPage<Article> selectTagsOrderbyTime(Page<?> page);
+
+	IPage<ArticleVo> selectPageFromTime(Page<?> page);
+
+
+
 }

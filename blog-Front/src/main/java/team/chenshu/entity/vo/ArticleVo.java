@@ -36,6 +36,6 @@ public class ArticleVo {
 	@ApiModelProperty("文章内容")
 	private String content;
 	@ApiModelProperty("文章观看数")
-	private String click;
+	private Integer click;
 
 }

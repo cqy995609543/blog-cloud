@@ -25,10 +25,21 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 	private ArticleMapper articleMapper;
 
 	@Override
-	public IPage<Article> selectTags(Page<?> page) {
+	public IPage<Article> selectTags(Page<?> page, int tag) {
 
 
-		IPage<Article> articleIPage = articleMapper.selectTags(page);
+		IPage<Article> articleIPage = articleMapper.selectTags(page,tag);
+
+
+		return articleIPage;
+	}
+
+
+	@Override
+	public IPage<Article> selectTagsOrderbyClick(Page<?> page) {
+
+
+		IPage<Article> articleIPage = articleMapper.selectTagsOrderbyClick(page);
 
 
 		return articleIPage;
@@ -41,6 +52,33 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
 		return articleIPage;
 	}
+
+	@Override
+	public IPage<ArticleVo> selectPageFromHot(Page<?> page) {
+
+		IPage<ArticleVo> articleIPage = articleMapper.selectPageFromHot(page);
+
+		return articleIPage;
+	}
+
+
+	@Override
+	public IPage<Article> selectTagsOrderbyTime(Page<?> page) {
+
+		IPage<Article> articleIPage = articleMapper.selectTagsOrderbyTime(page);
+
+		return articleIPage;
+	}
+
+	@Override
+	public IPage<ArticleVo> selectPageFromTime(Page<?> page) {
+
+		IPage<ArticleVo> articleIPage = articleMapper.selectPageFromTime(page);
+
+		return articleIPage;
+	}
+
+
 
 
 }
