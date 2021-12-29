@@ -70,5 +70,8 @@ public class Article implements Serializable {
     @ApiModelProperty("标签")
     private String tags;
 
+    @ApiModelProperty("导航栏url")
+    private String topUrl;
+
 
 }

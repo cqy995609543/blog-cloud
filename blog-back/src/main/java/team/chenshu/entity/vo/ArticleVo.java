@@ -38,5 +38,7 @@ public class ArticleVo{
 	private Long id;
 	@ApiModelProperty("文章是否显示 1是 0否")
 	private Boolean isShow;
+	@ApiModelProperty("导航栏url")
+	private String topUrl;
 
 }

@@ -141,6 +141,7 @@ public class ArticleController {
 		article.setCid(articleVo.getCid());
 		article.setTitle(articleVo.getTitle());
 		article.setId(articleVo.getId());
+		article.setTopUrl(articleVo.getTopUrl());
 		boolean update = articleService.saveOrUpdate(article);
 		return ResultUtils.success(update);
 	}

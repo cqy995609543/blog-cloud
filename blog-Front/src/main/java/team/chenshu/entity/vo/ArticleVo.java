@@ -37,5 +37,7 @@ public class ArticleVo {
 	private String content;
 	@ApiModelProperty("文章观看数")
 	private Integer click;
+	@ApiModelProperty("导航栏url")
+	private String topUrl;
 
 }

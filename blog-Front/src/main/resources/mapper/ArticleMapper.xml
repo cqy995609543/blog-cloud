@@ -9,7 +9,7 @@
     </select>
 
     <select id="selectPageVo" parameterType="integer" resultType="team.chenshu.entity.vo.ArticleVo">
-        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,content,description,tags FROM blogs_article where  FIND_IN_SET(#{tag},tags)
+        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,content,description,tags,top_url FROM blogs_article where  FIND_IN_SET(#{tag},tags)
     </select>
 
 
@@ -20,7 +20,7 @@
 
 
     <select id="selectPageFromHot" resultType="team.chenshu.entity.vo.ArticleVo">
-        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,description,tags FROM blogs_article order by click desc
+        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,description,tags,top_url FROM blogs_article order by click desc
     </select>
 
 
@@ -30,7 +30,7 @@
     </select>
 
     <select id="selectPageFromTime" resultType="team.chenshu.entity.vo.ArticleVo">
-        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,description,tags FROM blogs_article order by click,addtime desc
+        SELECT id,title,author,is_show,is_top,is_original,addtime,click,cid,description,tags,top_url FROM blogs_article order by click,addtime desc
     </select>
 
 
